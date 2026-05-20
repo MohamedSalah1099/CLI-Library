@@ -20,6 +20,9 @@ The project follows a layered architecture:
 - Run tests: `./gradlew test`
 
 ## 🚀 Getting Started
-1. Run `schema.sql` in your PostgreSQL database.
-2. Update `DatabaseConfig.java` with your credentials.
-3. Run `LibraryApp.java`.
+1. The project is configured to use an in-memory H2 database for demonstration purposes.
+2. Run the application using Gradle:
+   ```bash
+   ./gradlew :library-cli:run
+   ```
+3. (Optional) To use PostgreSQL, update `DatabaseConfig.java` with your credentials and re-enable the PostgreSQL driver in `build.gradle`.

@@ -8,3 +8,4 @@ plugins {
 
 rootProject.name = 'library-cli'
 include('library-cli')
+include('app')
