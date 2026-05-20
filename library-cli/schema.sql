@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS books (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255),
+    is_available BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS members (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS loans (
+    id SERIAL PRIMARY KEY,
+    book_id INT REFERENCES books(id) ON DELETE CASCADE,
+    member_id INT REFERENCES members(id) ON DELETE CASCADE,
+    loan_date DATE DEFAULT CURRENT_DATE,
+    due_date DATE NOT NULL,
+    return_date DATE
+);
